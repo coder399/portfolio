@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/browser";
 import { useState, useEffect, useRef } from "react";
 const API = "http://localhost:5000/api";
 
@@ -111,38 +112,31 @@ function ContactModal({ onClose }) {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = async () => {
-    if (!validate()) return;
-    setLoading(true);
-    setApiError("");
-    try {
-      const res = await fetch(`${API}/contacts`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (!res.ok) throw new Error("Server error");
-      setSubmitted(true);
-    } catch {
-      setApiError("Server se connect nahi ho saka. Dobara try karo.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const loadEntries = async () => {
-    setLoadingEntries(true);
-    try {
-      const res = await fetch(`${API}/contacts`);
-      const data = await res.json();
-      setEntries(data);
-    } catch {
-      setEntries([]);
-    } finally {
-      setLoadingEntries(false);
-    }
-  };
-
+const handleSubmit = async () => {
+  if (!validate()) return;
+  setLoading(true);
+  setApiError("");
+  try {
+    await emailjs.send(
+      "service_4b702y5",
+      "template_rwfztcb",
+      {
+        from_name: form.name,
+        from_email: form.email,
+        mobile: form.mobile,
+        city: form.city,
+        company: form.company || "N/A",
+        message: form.message,
+      },
+      "V5Liir_R9ZOvaCKlK"
+    );
+    setSubmitted(true);
+  } catch {
+    setApiError("Email send nahi hua. Dobara try karo.");
+  } finally {
+    setLoading(false);
+  }
+};
   const handleDelete = async (id) => {
     try {
       await fetch(`${API}/contacts/${id}`, { method: "DELETE" });
