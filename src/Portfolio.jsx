@@ -128,7 +128,7 @@ const handleSubmit = async () => {
         company: form.company || "N/A",
         message: form.message,
       },
-      "V5Liir_R9ZOvaCKlK"
+     { publicKey: "V5Liir_R9ZOvaCKlK" }
     );
     setSubmitted(true);
   } catch {
