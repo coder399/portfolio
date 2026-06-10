@@ -118,18 +118,18 @@ const handleSubmit = async () => {
   setApiError("");
   try {
     await emailjs.send(
-      "service_4b702y5",
-      "template_rwfztcb",
-      {
-        from_name: form.name,
-        from_email: form.email,
-        mobile: form.mobile,
-        city: form.city,
-        company: form.company || "N/A",
-        message: form.message,
-      },
-     { publicKey: "V5Liir_R9ZOvaCKlK" }
-    );
+  "service_u4osi7e",  // ← yeh karo purani wali
+  "template_rwfztcb",
+  {
+    from_name: form.name,
+    from_email: form.email,
+    mobile: form.mobile,
+    city: form.city,
+    company: form.company || "N/A",
+    message: form.message,
+  },
+  { publicKey: "V5Liir_R9ZOvaCKlK" }
+);
     setSubmitted(true);
   } catch {
     setApiError("Email send nahi hua. Dobara try karo.");
