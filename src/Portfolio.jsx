@@ -182,7 +182,7 @@ const handleSubmit = async () => {
         }} />
         <div style={{ position: "absolute", top: -40, right: -40, width: 180, height: 180, borderRadius: "50%", background: "radial-gradient(circle,#00FF9410 0%,transparent 70%)", pointerEvents: "none" }} />
 
-        <div style={{ padding: "28px 28px 0", position: "relative" }}>
+        <div style={{ padding: "20px 16px 0", position: "relative" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 22 }}>
             <div>
               <div style={{ fontSize: 10, color: "#00FF94", letterSpacing: "0.22em", marginBottom: 6 }}>04. CONTACT</div>
@@ -220,7 +220,7 @@ const handleSubmit = async () => {
               </div>
             </div>
           ) : (
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+           <div className="contact-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
               <Field label="Full Name *" error={errors.name}>
                 <input style={inputStyle(errors.name)} placeholder="Muhammad Ali" {...inp("name")} />
               </Field>
@@ -385,6 +385,9 @@ export default function Portfolio() {
         a { text-decoration: none; }
         input:focus, textarea:focus { border-color: #00FF9460 !important; box-shadow: 0 0 0 3px #00FF9415; color: #e2e2e2 !important; }
         input::placeholder, textarea::placeholder { color: #333; }
+        @media (max-width: 600px) {
+  .contact-grid { grid-template-columns: 1fr !important; }
+}
       `}</style>
 
       {showContact && <ContactModal onClose={() => setShowContact(false)} />}
@@ -393,7 +396,7 @@ export default function Portfolio() {
       <div style={{ position: "fixed", top: "8%", right: "8%", width: 360, height: 360, borderRadius: "50%", background: "radial-gradient(circle,#00FF9410 0%,transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
       <div style={{ position: "fixed", bottom: "15%", left: "3%", width: 280, height: 280, borderRadius: "50%", background: "radial-gradient(circle,#00C8FF0c 0%,transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
 
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "18px 48px", background: "rgba(7,7,7,0.88)", backdropFilter: "blur(14px)", borderBottom: "1px solid #141414" }}>
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 20px", background: "rgba(7,7,7,0.88)", backdropFilter: "blur(14px)", borderBottom: "1px solid #141414" }}>
         <span style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: 16, letterSpacing: "0.04em" }}>MT<span style={{ color: "#00FF94" }}>.</span></span>
         <div style={{ display: "flex", gap: 32 }}>
           {["about", "projects", "skills", "contact"].map(s => (
@@ -403,7 +406,7 @@ export default function Portfolio() {
         <div style={{ fontSize: 10, color: "#333", letterSpacing: "0.1em" }}><span style={{ color: "#00FF94" }}>●</span> Available</div>
       </nav>
 
-      <section id="about" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", padding: "120px 48px 80px", position: "relative", zIndex: 1 }}>
+      <section id="about" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", padding: "120px 20px 80px", position: "relative", zIndex: 1 }}>
         <div style={{ maxWidth: 720 }}>
           <div style={{ fontFamily: "'IBM Plex Mono'", fontSize: 11, color: "#00FF94", letterSpacing: "0.22em", marginBottom: 22, opacity: 0.85 }}>Hi, I'm</div>
           <h1 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "clamp(44px,6.5vw,82px)", lineHeight: 1.04, letterSpacing: "-0.02em", color: "#efefef", marginBottom: 14 }}>
@@ -433,7 +436,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section id="projects" style={{ padding: "96px 48px", position: "relative", zIndex: 1, borderTop: "1px solid #111" }}>
+      <section id="projects" style={{ padding: "80px 20px", position: "relative", zIndex: 1, borderTop: "1px solid #111" }}>
         <FadeIn>
           <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 52 }}>
             <span style={{ fontFamily: "'IBM Plex Mono'", fontSize: 11, color: "#00FF94", letterSpacing: "0.2em" }}>02.</span>
@@ -525,7 +528,7 @@ export default function Portfolio() {
         </FadeIn>
       </section>
 
-      <footer style={{ padding: "24px 48px", borderTop: "1px solid #111", display: "flex", justifyContent: "space-between", alignItems: "center", position: "relative", zIndex: 1 }}>
+      <footer style={{ padding: "24px 20px", borderTop: "1px solid #111", display: "flex", justifyContent: "space-between", alignItems: "center", position: "relative", zIndex: 1 }}>
         <span style={{ fontSize: 10, color: "#222", fontFamily: "'IBM Plex Mono'" }}>© 2025 Muhammad Talha</span>
         <span style={{ fontSize: 10, color: "#222", fontFamily: "'IBM Plex Mono'" }}>Built with React JS</span>
       </footer>
